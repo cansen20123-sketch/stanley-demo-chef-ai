@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan Chef AI - Sahur & Buka Tanpa Bingung</title>
+  <!-- External Libraries -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Custom Assets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/config.js"></script>
+</head>
+
+<body>
+  <header class="container">
+    <div class="hero-content">
+      <div class="brand-badge">
+        <strong>🌙 Ramadan Chef AI</strong>
+      </div>
+      <h1>
+        Bingung Sahur Masak Apa? <br /><span class="highlight">Tanya AI Aja!</span>
+      </h1>
+      <p>
+        Masukkan bahan yang ada di kulkasmu, pilih mood masak, dan biarkan AI
+        meracik resep spesial untuk Sahur & Buka Puasa.
+      </p>
+    </div>
+  </header>
+
+  <main class="container" style="margin-bottom: 0; margin-top: 0">
+    <div class="grid">
+      <section>
+        <article class="input-card">
+          <header>
+            <h3>🍳 Isi Kulkas & Mood</h3>
+          </header>
+          <form id="recipeForm">
+            <label for="ingredients">
+              Bahan yang tersedia (pisahkan dengan koma/baris baru)
+              <textarea id="ingredients" rows="5" placeholder="Contoh: Telur, sosis, nasi sisa, kecap, bawang merah..."
+                required></textarea>
+            </label>
+
+            <label for="mood">
+              Mood Masak Hari Ini
+              <select id="mood" required>
+                <option value="" selected disabled>
+                  Pilih mood masak...
+                </option>
+                <option value="sahur-satset">
+                  ⚡ Sahur Sat-set (Max 15 menit)
+                </option>
+                <option value="buka-hemat">💸 Buka Puasa Hemat</option>
+                <option value="sehat-kuat">💪 Menu Sehat & Kuat Puasa</option>
+                <option value="takjil-manis">🍬 Takjil Manis & Segar</option>
+              </select>
+            </label>
+
+            <button type="submit" id="generateBtn" class="contrast">
+              <span class="btn-text">✨ Racik Resep Sekarang</span>
+              <span class="btn-loading" style="display: none"><i class="fas fa-circle-notch fa-spin"></i>
+                Meracik...</span>
+            </button>
+          </form>
+        </article>
+
+        <!-- Gallery Section -->
+        <div class="gallery-container">
+          <h3>📸 Galeri Masakan</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img src="assets/images/1.jpg" alt="Masakan 1">
+            </div>
+            <div class="gallery-item">
+              <img src="assets/images/2.jpg" alt="Masakan 2">
+            </div>
+            <div class="gallery-item">
+              <img src="assets/images/3.jpg" alt="Masakan 3">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="recipeResult" class="recipe-container" style="display: none">
+        <article class="recipe-card">
+          <header class="recipe-header">
+            <div class="recipe-meta">
+              <span class="badge time"><i class="fas fa-clock"></i>
+                <span id="recipeTime">15 Min</span></span>
+              <span class="badge mood"><i class="fas fa-magic"></i>
+                <span id="recipeMood">Sat-set</span></span>
+            </div>
+            <h2 id="recipeTitle">Nasi Goreng Sahur Kilat</h2>
+          </header>
+
+          <div class="recipe-body">
+            <div class="recipe-section">
+              <h4>🛒 Bahan-bahan:</h4>
+              <ul id="recipeIngredients"></ul>
+            </div>
+
+            <div class="recipe-section">
+              <h4>👩‍🍳 Cara Membuat:</h4>
+              <ol id="recipeSteps"></ol>
+            </div>
+          </div>
+
+          <footer class="recipe-footer">
+            <button id="shareBtn" class="secondary outline">
+              <i class="fab fa-whatsapp"></i> Bagikan ke Keluarga
+            </button>
+          </footer>
+        </article>
+      </section>
+
+      <section id="emptyState" class="empty-state">
+        <article>
+          <div style="text-align: center; color: var(--muted-color)">
+            <i class="fas fa-utensils fa-3x" style="margin-bottom: 1rem; opacity: 0.5"></i>
+            <p>Resepmu akan muncul di sini.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <!-- Trending Section -->
+    <section class="trending-section">
+      <h3>🔥 Trending Resep Hari Ini</h3>
+      <div class="grid-trending">
+        <article class="trending-card">
+          <header>
+            <img
+              src="https://asset.kompas.com/crops/Bsvbz2VDUPJBqgJTNTrTvkMNSAA=/0x0:0x0/750x500/data/photo/2020/04/29/5ea93827cb270.jpg"
+              alt="Resep 1">
+          </header>
+          <div class="trending-card-content">
+            <h5>Bubur Sumsum Lembut</h5>
+            <div class="recipe-meta">
+              <span class="badge time">15 Min</span>
+              <span class="badge mood">Manis</span>
+            </div>
+          </div>
+        </article>
+        <article class="trending-card">
+          <header>
+            <img src="https://img-global.cpcdn.com/recipes/fe5aeab54e0ac17a/640x640sq80/photo.webp" alt="Resep 2">
+          </header>
+          <div class="trending-card-content">
+            <h5>Kurma Coklat Keju</h5>
+            <div class="recipe-meta">
+              <span class="badge time">5 Min</span>
+              <span class="badge mood">Takjil</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+      <h3>💡 Tips & Trik Dapur Ramadan</h3>
+      <div class="grid">
+        <article class="info-card">
+          <h5>Cara Simpan Sayur</h5>
+          <p>Bungkus kangkung/bayam dengan kertas koran sebelum masuk kulkas agar awet seminggu.</p>
+        </article>
+        <article class="info-card">
+          <h5>Bumbu Dasar Putih</h5>
+          <p>Siapkan blenderan bawang merah & putih di awal Ramadan untuk masak lebih cepat.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container" style="text-align: center; font-size: 0.8rem; opacity: 0.7">
+    <small>Dibuat dengan ❤️ untuk Ramadan 2026 • Powered by stanley</small>
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
