@@ -1,0 +1,137 @@
+:root {
+    --primary: #9DC08B;
+    --secondary: #0AC4E0;
+    --text-primary: #7AAACE;
+    --bg-color: #e4e7d2;
+    --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.brand-badge {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.highlight {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.input-card,
+.recipe-card,
+.info-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.input-card:hover,
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+button.contrast {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    font-weight: bold;
+}
+
+button.contrast:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.trending-section,
+.tips-section {
+    margin-top: 3rem;
+}
+
+.grid-trending {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.trending-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.trending-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.trending-card-content {
+    padding: 1rem;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
+}
+
+.badge.time {
+    background: #f1f8ee;
+    color: var(--primary);
+}
+
+.badge.mood {
+    background: #e1faff;
+    color: var(--secondary);
+}
+
+/* Gallery Section */
+.gallery-container {
+    margin-top: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}

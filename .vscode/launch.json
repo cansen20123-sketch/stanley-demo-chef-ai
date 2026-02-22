@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open index.html",
+            "file": "c:\\Users\\ADVAN\\Downloads\\SC-Projek-20260220T082759Z-1-001\\SC-Projek\\sc-html-chef-ai\\sc-chef-ai\\ui\\index.html"
+        }
+    ]
+}
